@@ -1,4 +1,4 @@
-# [Test Model] 🎮
+# Unity Engine Test Model 🎮
 
 A small Unity game I built to learn, experiment, and have fun with game development.
 
