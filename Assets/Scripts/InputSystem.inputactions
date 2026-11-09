@@ -17,7 +17,7 @@
                     "priority": 0
                 },
                 {
-                    "name": "New action",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "b8b8e793-505e-48b4-80bf-9c7631432786",
                     "expectedControlType": "",
@@ -29,7 +29,7 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
+                    "name": "WASD",
                     "id": "b2eca34b-052c-410d-ada6-6b43eb0e56fd",
                     "path": "2DVector",
                     "interactions": "",
@@ -90,7 +90,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
