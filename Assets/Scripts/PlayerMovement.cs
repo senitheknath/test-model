@@ -44,7 +44,10 @@ public class PlayerMovement : MonoBehaviour
     public void Move()
     {
         Vector2 move = moveAction.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(move.x, 0f, move.y);
+
+        // Convert local/input directions to world directions relative to the player's rotation
+        Vector3 moveDirection = transform.right * move.x + transform.forward * move.y;
+
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
     }
 
