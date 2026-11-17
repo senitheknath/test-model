@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
 
+    [Header("Ground Check")]
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    private bool isGrounded;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -35,7 +41,10 @@ public class PlayerMovement : MonoBehaviour
     {   
         Move();
 
-        if (jumpAction.triggered)
+        // Check if the ground check sphere overlaps with any ground layers
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (jumpAction.triggered && isGrounded)
         {
             Jump();
         }
@@ -54,5 +63,14 @@ public class PlayerMovement : MonoBehaviour
     public void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
+        }
     }
 }
