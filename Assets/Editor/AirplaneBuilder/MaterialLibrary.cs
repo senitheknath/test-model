@@ -80,12 +80,12 @@ namespace AirplaneBuilder
             GalleyTrolley = GetOrCreateMaterial("Mat_GalleyTrolley", litShader, InteriorConfig.ColorGalleyTrolley);
             GalleyAccent = GetOrCreateMaterial("Mat_GalleyAccent", litShader, InteriorConfig.ColorGalleyAccent);
 
-            CockpitWall = GetOrCreateMaterial("Mat_CockpitWall", litShader, InteriorConfig.ColorCockpitWall);
-            CockpitPanel = GetOrCreateMaterial("Mat_CockpitPanel", litShader, InteriorConfig.ColorCockpitPanel);
-            CockpitSeat = GetOrCreateMaterial("Mat_CockpitSeat", litShader, InteriorConfig.ColorCockpitSeat);
+            CockpitWall = GetOrCreateMaterial("Mat_CockpitWall", litShader, InteriorConfig.CockpitWallLit);
+            CockpitPanel = GetOrCreateMaterial("Mat_CockpitPanel", litShader, InteriorConfig.CockpitPanelBody);
+            CockpitSeat = GetOrCreateMaterial("Mat_CockpitSeat", litShader, InteriorConfig.CockpitSeatCharcoal);
 
-            HorizonOrange = GetOrCreateMaterial("Mat_HorizonOrange", litShader, InteriorConfig.ColorHorizonOrange, true, InteriorConfig.ColorHorizonOrange * 1.8f);
-            HorizonBlue = GetOrCreateMaterial("Mat_HorizonBlue", litShader, InteriorConfig.ColorHorizonBlue, true, InteriorConfig.ColorHorizonBlue * 1.8f);
+            HorizonOrange = GetOrCreateMaterial("Mat_HorizonOrange", litShader, InteriorConfig.CockpitHorizonOrange, true, InteriorConfig.CockpitHorizonOrange * 1.8f);
+            HorizonBlue = GetOrCreateMaterial("Mat_HorizonBlue", litShader, InteriorConfig.CockpitHorizonBlue, true, InteriorConfig.CockpitHorizonBlue * 1.8f);
 
             Toilet = GetOrCreateMaterial("Mat_Toilet", litShader, InteriorConfig.ColorToilet);
             Sink = GetOrCreateMaterial("Mat_Sink", litShader, InteriorConfig.ColorSink);

@@ -65,11 +65,19 @@ namespace AirplaneBuilder
             return mesh;
         }
 
-        public static Mesh CreateQuad(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
+        public static Mesh CreateQuad(Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, bool doubleSided = true)
         {
             Mesh mesh = new Mesh { name = "FlatQuad" };
-            mesh.vertices = new Vector3[] { p0, p1, p2, p3 };
-            mesh.triangles = new int[] { 0, 1, 2, 0, 2, 3 };
+            if (doubleSided)
+            {
+                mesh.vertices = new Vector3[] { p0, p1, p2, p3, p0, p3, p2, p1 };
+                mesh.triangles = new int[] { 0, 1, 2, 0, 2, 3, 4, 5, 6, 4, 6, 7 };
+            }
+            else
+            {
+                mesh.vertices = new Vector3[] { p0, p1, p2, p3 };
+                mesh.triangles = new int[] { 0, 1, 2, 0, 2, 3 };
+            }
             mesh.RecalculateNormals();
             mesh.RecalculateBounds();
             return mesh;
@@ -147,6 +155,12 @@ namespace AirplaneBuilder
             tris.Add(idx + 0);
             tris.Add(idx + 2);
             tris.Add(idx + 3);
+        }
+
+        public static void AddDoubleSidedQuad(List<Vector3> verts, List<int> tris, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
+        {
+            AddQuad(verts, tris, p0, p1, p2, p3);
+            AddQuad(verts, tris, p0, p3, p2, p1);
         }
 
         public static GameObject CreateMeshObject(string name, Mesh mesh, Material mat, Transform parent, bool addBoxCollider = false)
